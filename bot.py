@@ -4,6 +4,7 @@
 import logging
 import re
 from datetime import date, timedelta
+import os
 
 from telegram import Update
 from telegram.constants import ParseMode
@@ -17,7 +18,7 @@ from telegram.ext import (
 from telegram.request import HTTPXRequest  # для python-telegram-bot ≥20
 
 # Токен вашего бота Telegram
-TELEGRAM_TOKEN = 'ВАШ_TELEGRAM_TOKEN'
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 # Импортируем функции из скрипта поиска
 from search_flights_text import parse_query, get_place, search_flights

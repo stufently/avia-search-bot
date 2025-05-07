@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # file: search_flights_text.py
 
+import os
 import re
 import sys
 import requests
@@ -17,7 +18,7 @@ CITY_ALIASES = {
 }
 
 # ====== Настройки API v3 ======
-API_TOKEN              = 'ВАШ_API_TOKEN'
+API_TOKEN              =  os.getenv("API_TOKEN")
 PRICES_FOR_DATES_URL   = 'https://api.travelpayouts.com/aviasales/v3/prices_for_dates'
 GROUPED_PRICES_URL     = 'https://api.travelpayouts.com/aviasales/v3/grouped_prices'
 AUTOCOMPLETE_URL       = 'https://autocomplete.travelpayouts.com/places2'
