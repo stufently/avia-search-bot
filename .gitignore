@@ -1,0 +1,42 @@
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+*.env
+
+# .env file (contains sensitive information)
+.env
+
+# Temporary files
+*.swp
+*.bak
+*.tmp
+
+# pyCharm, VSCode, and other IDE files
+.idea/
+.vscode/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs and runtime files
+*.log
+*.pid
+*.seed
+*.sqlite3
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,11 @@
+services:
+  autosender:
+    image: ghcr.io/stufently/avia-search-bot:latest  # Образ из GHCR
+    container_name: autosender
+    volumes:
+      # Монтируем директории с данными
+      - ./tdatas:/app/tdatas
+      - ./sessions:/app/sessions
+    env_file:
+      - .env  # Монтируем .env файл с переменными окружения
+    restart: unless-stopped
