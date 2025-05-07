@@ -1,6 +1,6 @@
 services:
   autosender:
-    image: ghcr.io/stufently/avia-search-bot:latest  # Образ из GHCR
+    image: .
     container_name: autosender
     volumes:
       # Монтируем директории с данными
