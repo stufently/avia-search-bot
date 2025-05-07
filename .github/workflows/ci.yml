@@ -11,7 +11,7 @@ permissions:
   packages: write             # нужен для push в ghcr.io
 
 env:
-  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/tgautoreplybot
+  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/avia-search-bot
 
 jobs:
   build:
