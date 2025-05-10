@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # file: bot.py
 
+import os
 import logging
 import re
 from datetime import date, timedelta
