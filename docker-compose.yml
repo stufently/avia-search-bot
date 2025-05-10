@@ -1,5 +1,5 @@
 services:
-  autosender:
+  avia-search:
     image: ghcr.io/stufently/avia-search-bot:latest  # Образ из GHCR
     container_name: avia-search
     volumes:
