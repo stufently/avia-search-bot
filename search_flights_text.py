@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # file: search_flights_text.py
 
+import os
 import re
 import sys
 import calendar
