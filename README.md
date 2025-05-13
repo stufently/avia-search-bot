@@ -39,13 +39,13 @@ MIT
 
 ## 🐳 Docker Deployment
 
-Run the service with Docker Compose:
+Запуск с Docker Compose:
 
    ```bash
    docker-compose up -d
    ```
 
-   To update to a new image version:
+   Для обновления новой версиии image:
 
    ```bash
    docker-compose pull
