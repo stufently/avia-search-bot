@@ -146,18 +146,29 @@ async def handle_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         logger.exception("Ошибка при поиске рейсов")
         await update.message.reply_text("❗ Произошла ошибка при поиске. Попробуйте позже.")
 
-def main() -> None:
+def build_application(token: str | None = None):
+    """Собирает Application с хендлерами, но НЕ запускает polling.
+
+    Вынесено из main() ради гейта сборки: `import bot` проверяет только наличие
+    символов, а несовместимость СИГНАТУР (аргументы HTTPXRequest, цепочка
+    ApplicationBuilder) видна лишь при фактическом построении объекта. Сеть тут
+    не трогается — она начинается в run_polling().
+    """
     request = HTTPXRequest(
         connection_pool_size=8,
         connect_timeout=10.0,
         read_timeout=20.0,
         write_timeout=20.0,
     )
-    app = ApplicationBuilder().token(TELEGRAM_TOKEN).request(request).build()
+    app = ApplicationBuilder().token(token or TELEGRAM_TOKEN).request(request).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_query))
-    app.run_polling()
+    return app
+
+
+def main() -> None:
+    build_application().run_polling()
 
 if __name__ == "__main__":
     main()
