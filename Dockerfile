@@ -1,6 +1,6 @@
 # Этап сборки: устанавливаем базовые зависимости и пакеты Python
-# Базовый образ прибит по digest — тег (даже точный, 3.12.9-slim) мутабелен.
-FROM python:3.12.9-slim@sha256:48a11b7ba705fd53bf15248d1f94d36c39549903c5d59edcfa2f3f84126e7b44 AS builder
+# Базовый образ прибит по digest — тег (даже точный, 3.14.8-slim) мутабелен.
+FROM python:3.14.8-slim@sha256:c3e521df8b2b498a7a682e7e18676771cb80c6b75b8699af886b2d554ce40151 AS builder
 
 WORKDIR /app
 
@@ -22,7 +22,7 @@ COPY requirements.txt constraints.txt ./
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt -c constraints.txt
 
 # Финальный этап: минимальный образ с необходимыми runtime библиотеками
-FROM python:3.12.9-slim@sha256:48a11b7ba705fd53bf15248d1f94d36c39549903c5d59edcfa2f3f84126e7b44
+FROM python:3.14.8-slim@sha256:c3e521df8b2b498a7a682e7e18676771cb80c6b75b8699af886b2d554ce40151
 
 ENV PYTHONUNBUFFERED=1
 

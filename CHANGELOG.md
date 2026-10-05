@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-05
+
+### Изменено
+- **Рантайм Python 3.12.9 → 3.14.8** (обе стадии `Dockerfile`,
+  `python:3.14.8-slim@sha256:c3e521df…`, база Debian 13 trixie вместо bookworm).
+  Пины `requirements.txt`/`constraints.txt` не менялись, все колёса cp314 —
+  компиляции нет. Гейт сборки (`pip check`, `verify_pins.py`, импорты,
+  `build_application`) проходит; смоук под `1002:1002` — OK.
+
 ## 2026-08-15
 
 ### Исправлено
